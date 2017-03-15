@@ -1,4 +1,3 @@
-// Require all files Gulp needs
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var browserify = require('browserify');
@@ -9,8 +8,8 @@ var buildProduction = utilities.env.production;
 var del = require('del');
 var jshint = require('gulp-jshint');
 var lib = require('bower-files')({
-  "overrides": {
-    "bootstrap": {
+  "overrides":{
+    "bootstrap" : {
       "main": [
         "less/bootstrap.less",
         "dist/css/bootstrap.css",
@@ -19,22 +18,22 @@ var lib = require('bower-files')({
     }
   }
 });
-var browserSync = require('broswer-sync').create();
+var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
-// Gulp tasks
-gulp.task('bowerCSS', function() {
+
+gulp.task('bowerCSS', function () {
   return gulp.src(lib.ext('css').files)
-  .pipe(concat('vendor.css'))
-  .pipe(gulp.dest('./build/css'));
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('./build/css'));
 });
 
-gulp.task('bowerJS', function() {
+gulp.task('bowerJS', function () {
   return gulp.src(lib.ext('js').files)
-  .pipe(concat(vendor.min.js))
-  .pipe(uglify())
-  .pipe(gulp.dest('./build/js'));
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'));
 });
 
 gulp.task('jshint', function(){
@@ -54,6 +53,12 @@ gulp.task('jsBrowserify', ['concatInterface'], function() {
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
+});
+
+gulp.task('concatInterface', function() {
+  return gulp.src(['./js/*-interface.js'])
+    .pipe(concat('allConcat.js'))
+    .pipe(gulp.dest('./tmp'));
 });
 
 gulp.task("clean", function(){
@@ -87,13 +92,14 @@ gulp.task('cssBuild', function() {
 
 gulp.task('bowerBuild', ['bower'], function(){
   browserSync.reload();
+
 });
 
 gulp.task('htmlBuild', function() {
   browserSync.reload();
 });
 
-gulp.task('serve', function() { //try adding ['build'] to this task
+gulp.task('serve', function() {//try adding ['build'] to this task
   browserSync.init({
     server: {
       baseDir: "./",
@@ -101,6 +107,7 @@ gulp.task('serve', function() { //try adding ['build'] to this task
     }
   });
   gulp.watch(['bower.json'], ['bowerBuild']);
+
   gulp.watch(['js/*.js'], ['jsBuild']);
   gulp.watch(["scss/*.scss"], ['cssBuild']);
   gulp.watch(['*.html'], ['htmlBuild']);
