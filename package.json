@@ -22,5 +22,13 @@
     "gulp-util": "^3.0.8",
     "jshint": "^2.9.4",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danlauby/gulp-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danlauby/gulp-js/issues"
+  },
+  "homepage": "https://github.com/danlauby/gulp-js#readme"
 }

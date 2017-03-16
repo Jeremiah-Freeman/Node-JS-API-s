@@ -6,7 +6,7 @@
     "Jay Freeman and Dan Lauby"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/danlauby/gulp-js",
   "ignore": [
     "**/.*",
     "node_modules",
