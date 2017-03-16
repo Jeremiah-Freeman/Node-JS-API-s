@@ -1,8 +1,8 @@
 var Weather = require("./../js/weather.js").weatherModule;
 
-var displayHumidity = function(city, humidityData) {
-  $('.showWeather').text("The temperature in " + city + " is " + convertedTemp + "F");
-};
+// var displayHumidity = function(city) {
+//   $('.showWeather').text("The temperature in " + city + " is " + convertedTemp + "F");
+// };
 
 function initMap(coords) {
   var cityCoord = {lat: coords[0], lng: coords[1]};
