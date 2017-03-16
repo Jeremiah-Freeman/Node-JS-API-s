@@ -6,10 +6,10 @@ var displayHumidity = function(city, humidityData) {
 
 $(document).ready(function() {
   var currentWeatherObject = new Weather();
-  $('#weather-location').click(function() {
-   var city = $('#weatherLocation').val();
-   console.log(city);
-   $('#weatherLocation').val("");
-   currentWeatherObject.getWeather(city, displayHumidity);
+  $('#display-city').click(function() {
+   var city = $('#city').val();
+   $('#city').val("");
+   var coords = currentWeatherObject.getWeather(city, displayHumidity);
+
  });
 });

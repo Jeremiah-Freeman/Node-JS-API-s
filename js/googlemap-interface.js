@@ -1,26 +1,29 @@
 var GoogleMap = require('./../js/googlemap.js').mapModule;
-
+var Weather = require("./../js/weather.js").weatherModule;
 $(document).ready(function() {
+  var currentWeatherObject = new Weather();
+  var coords = currentWeatherObject.getWeather();
   var currentMapObject = new GoogleMap();
   $('#city-location').click(function() {
-    console.log("Not this time");
     var city = $('#location').val();
     $('#location').val("");
     currentMapObject.getMap(city);
   });
 
-  initMap();
+  initMap(coords);
 });
 
 
-function initMap() {
-  var uluru = {lat: 45.5231, lng: -122.6765};
+function initMap(coords) {
+  var cityCoord = {lat: coords[0], lng: coords[1]};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
-    center: uluru
+    center: cityCoord
   });
   var marker = new google.maps.Marker({
-    position: uluru,
+    position: cityCoord,
     map: map
   });
 }
+
+exports.initModule = initMap;
