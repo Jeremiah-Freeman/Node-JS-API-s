@@ -1,10 +1,8 @@
 var weatherAPI = require('./../.env').apiKey2;
 var initMap = require('./../js/googlemap-interface.js').initModule;
 
-
 function Weather() {
 }
-
 
 Weather.prototype.getWeather = function(city) {
   var coords = [];
@@ -23,6 +21,5 @@ Weather.prototype.getWeather = function(city) {
 
   });
 };
-
 
 exports.weatherModule = Weather;
