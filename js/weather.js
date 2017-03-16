@@ -13,7 +13,6 @@ Weather.prototype.getWeather = function(city) {
     var lon = parseFloat(response.coord.lon);
     coords.push(lat);
     coords.push(lon);
-    console.log(lat,lon);
     initMap(coords);
   }).fail(function(error) {
     $('.showWeather').text(error.responseJSON.message);

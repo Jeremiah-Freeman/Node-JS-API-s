@@ -73,7 +73,7 @@ function initMap(coords) {
             {
               featureType: 'water',
               elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
+              stylers: [{color: '#FF69B4'}]
             },
             {
               featureType: 'water',
@@ -83,14 +83,27 @@ function initMap(coords) {
             {
               featureType: 'water',
               elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
+              stylers: [{color: '#FF69B4'}]
             }
           ]
         });
+
   var marker = new google.maps.Marker({
     position: cityCoord,
     map: map
   });
+  var latLng = new google.maps.LatLng(coords[0],coords[1]);
+  var panorama = new google.maps.StreetViewPanorama(
+           document.getElementById('pano'), {
+             position: latLng,
+             pov: {
+               heading: 34,
+               pitch: 10
+             }
+           });
+           console.log(latLng);
+       map.setStreetView(panorama);
+
 }
 
 exports.initModule = initMap;

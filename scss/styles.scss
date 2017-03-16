@@ -1,13 +1,31 @@
-#map {
-  height: 400px;
-  width: 100%;
- }
+body {
+
+  background-color: #B7B0C2;
+}
+//
+// #map {
+//   height: 400px;
+//   width: 100%;
+//   margin-bottom: 10px;
+//  }
+
+ #map, #pano {
+       float: left;
+       height: 40%;
+       width: 100%;
+     }
+
 
 h1 {
    font-family: 'Amatic SC', cursive;
  }
 
 .jumbotron {
-  background-color: #62a8e5;
+  margin-top: 40px;
+  background-color: #F2CDA2;
   text-align: center;
+}
+
+#display-city {
+  background-color: #F2CDA2;
 }
