@@ -1,17 +1,17 @@
 var GoogleMap = require('./../js/googlemap.js').mapModule;
 var Weather = require("./../js/weather.js").weatherModule;
-$(document).ready(function() {
-  var currentWeatherObject = new Weather();
-  var coords = currentWeatherObject.getWeather();
-  var currentMapObject = new GoogleMap();
-  $('#city-location').click(function() {
-    var city = $('#location').val();
-    $('#location').val("");
-    currentMapObject.getMap(city);
-  });
-
-  initMap(coords);
-});
+// $(document).ready(function() {
+//   var currentWeatherObject = new Weather();
+//   var coords = currentWeatherObject.getWeather();
+//   var currentMapObject = new GoogleMap();
+//   $('#city-location').click(function() {
+//     var city = $('#location').val();
+//     $('#location').val("");
+//     currentMapObject.getMap(city);
+//   });
+//
+//   initMap(coords);
+// });
 
 
 function initMap(coords) {
